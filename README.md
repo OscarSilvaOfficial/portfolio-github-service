@@ -9,8 +9,6 @@
 | description | `String` | Descrição do repositório
 | commits | `Array<GithubCommit>` | Lista de commits do repositório
 
----
-
 ## GithubCommit
 | property | type | description
 | ------ | ------ | ------ |
