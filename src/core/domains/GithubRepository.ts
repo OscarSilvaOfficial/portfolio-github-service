@@ -1,36 +1,38 @@
 import { GithubCommit } from "./GithubCommit";
 
-const enum Visibility {
+export const enum Visibility {
   PRIVATE = 'private',
   PUBLIC = 'public'
 }
 
-export class GithubReposutory {
-  constructor(
-    private __name: string,
-    private __path: string,
-    private __visibility: Visibility,
-    private __description: string,
-    private __commits: GithubCommit[],
-  ) {}
+export interface IGithubRepository {
+  name: string,
+  path: string,
+  visibility: Visibility,
+  description: string,
+  commits: GithubCommit[],
+}
+
+export class GithubRepository {
+  constructor(private github_repository: IGithubRepository) {}
 
   get name(): string {
-    return this.__name;
+    return this.github_repository.name;
   }
 
   get path(): string {
-    return this.__path;
+    return this.github_repository.path;
   }
 
   get visibility(): Visibility {
-    return this.__visibility;
+    return this.github_repository.visibility;
   }
 
   get description(): string {
-    return this.__description;
+    return this.github_repository.description;
   }
 
   get link(): GithubCommit[] {
-    return this.__commits;
+    return this.github_repository.commits;
   }
 }

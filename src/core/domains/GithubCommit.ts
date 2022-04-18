@@ -1,29 +1,31 @@
+export interface IGithubCommit {
+  sha: string,
+  author: string,
+  date: Date,
+  message: string,
+  link: string,
+}
+
 export class GithubCommit {
-  constructor(
-    private __sha: string,
-    private __author: string,
-    private __date: Date,
-    private __message: string,
-    private __link: string,
-  ) {}
+  constructor(private github_commit: IGithubCommit) {}
 
   get sha(): string {
-    return this.__sha;
+    return this.github_commit.sha;
   }
 
   get author(): string {
-    return this.__author;
+    return this.github_commit.author;
   }
 
   get date(): Date {
-    return this.__date;
+    return this.github_commit.date;
   }
 
   get message(): string {
-    return this.__message;
+    return this.github_commit.message;
   }
 
   get link(): string {
-    return this.__link;
+    return this.github_commit.link;
   }
 }
