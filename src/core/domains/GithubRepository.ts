@@ -32,7 +32,7 @@ export class GithubRepository {
     return this.github_repository.description;
   }
 
-  get link(): GithubCommit[] {
+  get commits(): GithubCommit[] {
     return this.github_repository.commits;
   }
 }

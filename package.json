@@ -6,7 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "tests": "npx jest"
+    "tests": "npx jest",
+    "dev": "npx ts-node-dev src/main.ts",
+    "test": "npx jest"
   },
   "dependencies": {
     "axios": "^0.26.1",
