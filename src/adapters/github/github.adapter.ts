@@ -28,7 +28,7 @@ export class GithubAdapter {
 
   async allGithubRepositories(): Promise<GithubRepository[]> {
     const repositoriesRequest = await this.githubService.getAllRepositories();
-    return await Promise.all(
+    return Promise.all(
       repositoriesRequest.map( async (repository: any) => {
         const commits = await this.githubService.getRepositoryCommits(repository.name);
         return this.repositoryDTO(repository, commits);
