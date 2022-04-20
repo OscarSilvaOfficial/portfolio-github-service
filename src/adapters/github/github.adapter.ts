@@ -5,7 +5,7 @@ import { GithubRepository, IGithubRepository, Visibility } from "@/core/domains/
 export class GithubAdapter {
   constructor(private githubService: GithubServiceContract){}
 
-  private entityDTO(commitData: any): GithubCommit {
+  private commitDTO(commitData: any): GithubCommit {
     const { sha, commit } = commitData
     return new GithubCommit({
       sha: sha,
