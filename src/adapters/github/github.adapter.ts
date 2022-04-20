@@ -22,7 +22,7 @@ export class GithubAdapter {
       path: repositoryData.full_name,
       visibility: repositoryData.private ? Visibility.PRIVATE : Visibility.PUBLIC,
       description: repositoryData.description,
-      commits: commitData.map(this.entityDTO)
+      commits: commitData.map(this.commitDTO)
     });
   }
 
