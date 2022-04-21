@@ -32,7 +32,7 @@ export class GithubAdapter {
       repositoriesRequest.map( async (repository: any) => {
         const commits = await this.githubService.getRepositoryCommits(repository.name);
         return this.repositoryDTO(repository, commits);
-      }
-    ))
+      })
+    )
   }
 }
