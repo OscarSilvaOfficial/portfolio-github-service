@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "tests": "npx jest",
-    "dev": "npx ts-node-dev src/main.ts",
+    "dev": "npx ts-node-dev -r tsconfig-paths/register src/main/index.ts",
     "test": "npx jest"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "ts-jest": "^27.0.3",
     "ts-loader": "^9.2.3",
     "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.14.1",
     "typescript": "^4.3.5"
   },
   "jest": {
@@ -38,18 +39,18 @@
       "json",
       "ts"
     ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
     "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/src/$1"
-    },
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
-    "coverageDirectory": "./coverage",
+    "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
 }

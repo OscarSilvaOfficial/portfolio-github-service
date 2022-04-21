@@ -1,5 +1,5 @@
 import express from "express";
-import { githubRoutes } from "./main/routes/github.routes";
+import { githubRoutes } from "./routes/github.routes";
 
 const app = express();
 

@@ -1,8 +1,9 @@
 import { GithubServiceContract } from "@/adapters/contracts/githubservice.contract";
 import { GithubCommit } from "@/core/domains/GithubCommit";
 import { GithubRepository, Visibility } from "@/core/domains/GithubRepository";
+import { GithubAdapterContract } from "@/adapters/contracts/githubadapter.contract copy";
 
-export class GithubAdapter {
+export class GithubAdapter implements GithubAdapterContract {
   constructor(private githubService: GithubServiceContract){}
 
   private commitDTO(commitData: any): GithubCommit {
