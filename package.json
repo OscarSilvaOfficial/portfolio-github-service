@@ -11,8 +11,11 @@
     "test": "npx jest"
   },
   "dependencies": {
+    "@tsed/common": "^7.0.0-beta.10",
+    "@tsed/core": "^7.0.0-beta.10",
     "axios": "^0.26.1",
-    "express": "^4.17.3"
+    "express": "4",
+    "express-decorators": "^1.2.1"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
