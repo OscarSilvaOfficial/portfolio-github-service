@@ -1,11 +1,11 @@
-import { GithubServiceContract } from "@/adapters/contracts/githubservice.contract";
+import { GithubAdapterContract } from "@/adapters/contracts/githubadapter.contract";
 import { GithubRepository } from "@/core/domains/GithubRepository";
 
 export class GithubRepositories {
-  constructor(private githubService: GithubServiceContract){}
+  constructor(private githubAdapter: GithubAdapterContract){}
 
-  get githubRepositories(): GithubRepository[] {
-    return []
+  async githubRepositories(): Promise<GithubRepository[]> {
+    return await this.githubAdapter.allGithubRepositories();
   }
 
 }

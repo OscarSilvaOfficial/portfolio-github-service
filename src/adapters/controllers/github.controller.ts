@@ -1,10 +1,15 @@
 import { GithubRepository } from "@/core/domains/GithubRepository";
-import { GithubAdapterContract } from "../contracts/githubadapter.contract copy";
+import { GithubAdapterContract } from "../contracts/githubadapter.contract";
+import { GithubRepositories } from "@/core/useCases/githubRepositories"
 
 export class GithubController {
-  constructor(private githubAdapter: GithubAdapterContract) {}
+  useCase: GithubRepositories;
+
+  constructor(githubAdapter: GithubAdapterContract) {
+    this.useCase = new GithubRepositories(githubAdapter);
+  }
 
   async allGithubRepositoriesWithCommits(): Promise<GithubRepository[]> {
-    return await this.githubAdapter.allGithubRepositories();
+    return await this.useCase.githubRepositories();
   }
 }
