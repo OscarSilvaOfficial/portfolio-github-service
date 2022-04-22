@@ -2,6 +2,7 @@ import { GithubController } from '@/adapters/controllers/github.controller';
 import { GithubAdapter } from '@/adapters/github/github.adapter';
 import { GithubService } from '@/infra/external/github.service';
 import { basePath as Router, get as GET } from 'express-decorators';
+import { CompositeMiddlewares } from '../middlewares/composite.middleware';
 
 @Router('/')
 export class GithubRoutes {
@@ -13,7 +14,7 @@ export class GithubRoutes {
     this.controller = new GithubController(adapter);
   }
 
-  @GET('/')
+  @GET('/', CompositeMiddlewares.compose())
   async allRepositories(_request, response) {
     try {
       const repositories = await this.controller.allGithubRepositoriesWithCommits();

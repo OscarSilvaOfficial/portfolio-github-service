@@ -11,9 +11,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/express-redis-cache": "^1.1.2",
     "axios": "^0.26.1",
     "express": "4",
-    "express-decorators": "^1.2.1"
+    "express-decorators": "^1.2.1",
+    "express-redis-cache": "^1.1.3"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
