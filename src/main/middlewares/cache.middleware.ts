@@ -7,5 +7,5 @@ export const cache = RedisCache({
   port: enviroment.REDIS_PORT,
   auth_pass: enviroment.REDIS_PASSWORD,
   prefix: 'github-api',
-  expire: 120,
+  expire: 3600,
 })  
