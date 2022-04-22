@@ -1,5 +1,9 @@
-# Entidades
+# Portfolio Github Service
 
+Esse repositório é responsável por consultar todos os `Repositórios` do meu perfil
+no Github e retornar os dados formatados.
+
+# Entidades
 
 ## GithubRepository
 | property | type | description
