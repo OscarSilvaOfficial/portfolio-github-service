@@ -1,11 +1,11 @@
 import RedisCache from 'express-redis-cache'
 import { createClient } from 'redis'
+import * as enviroment from "@/main/config/enviroment"
 
 export const cache = RedisCache({
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
-  auth_pass: process.env.REDIS_PASSWORD,
+  host: enviroment.REDIS_HOST,
+  port: enviroment.REDIS_PORT,
+  auth_pass: enviroment.REDIS_PASSWORD,
   prefix: 'github-api',
-  client: createClient(),
   expire: 120,
 })  

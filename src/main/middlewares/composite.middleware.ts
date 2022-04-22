@@ -2,7 +2,7 @@ import { cache } from './cache.middleware';
 
 const STATUS_CODE_OK = 200
 const STATUS_CODE_FORBIDDEN = 403
-const DEFAULT_LIMIT = 10
+const DEFAULT_LIMIT = "xxx"
 
 export class CompositeMiddlewares {
 
