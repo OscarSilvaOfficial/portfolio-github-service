@@ -9,7 +9,7 @@ export class CompositeMiddlewares {
   configureCache() {
     return cache.route({ 
       expire: {
-        [STATUS_CODE_OK]: 120,
+        [STATUS_CODE_OK]: 3600,
         [STATUS_CODE_FORBIDDEN]: 0,
         [DEFAULT_LIMIT]: 10
       }
