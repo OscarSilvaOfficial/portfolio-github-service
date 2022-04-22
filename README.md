@@ -1,5 +1,6 @@
 # Entidades
 
+
 ## GithubRepository
 | property | type | description
 | ------ | ------ | ------ |
