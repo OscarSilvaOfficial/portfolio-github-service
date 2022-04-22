@@ -1,33 +1,35 @@
 import { GithubServiceContract } from "@/adapters/contracts/githubservice.contract";
-import { GithubCommit } from "@/core/domains/GithubCommit";
-import { GithubRepository, Visibility } from "@/core/domains/GithubRepository";
+import { GithubCommit, IGithubCommit } from "@/core/domains/GithubCommit";
+import { GithubRepository, IGithubRepository, Visibility } from "@/core/domains/GithubRepository";
 import { GithubAdapterContract } from "@/adapters/contracts/githubadapter.contract";
 
 export class GithubAdapter implements GithubAdapterContract {
   constructor(private githubService: GithubServiceContract){}
 
-  private commitDTO(commitData: any): GithubCommit {
+  private commitDTO(commitData: any): IGithubCommit {
     const { sha, commit } = commitData
-    return new GithubCommit({
+    const commitEntity = new GithubCommit({
       sha: sha,
       author: commit.author.name,
       date: commit.author.date,
       message: commit.message,
       link: commit.url
     });
+    return commitEntity.toJSON();
   }
 
-  private repositoryDTO(repositoryData: any, commitData: any): GithubRepository {
-    return new GithubRepository({
+  private repositoryDTO(repositoryData: any, commitData: any): IGithubRepository {
+    const repositoryEntity = new GithubRepository({
       name: repositoryData.name,
       path: repositoryData.full_name,
       visibility: repositoryData.private ? Visibility.PRIVATE : Visibility.PUBLIC,
       description: repositoryData.description,
       commits: commitData.map(this.commitDTO)
     });
+    return repositoryEntity.toJSON();
   }
 
-  async allGithubRepositories(): Promise<GithubRepository[]> {
+  async allGithubRepositories(): Promise<IGithubRepository[]> {
     const repositoriesRequest = await this.githubService.getAllRepositories();
     return Promise.all(
       repositoriesRequest.map( async (repository: any) => {

@@ -1,5 +1,5 @@
-import { GithubRepository } from "@/core/domains/GithubRepository";
+import { IGithubRepository } from "@/core/domains/GithubRepository";
 
 export interface GithubAdapterContract {
-  allGithubRepositories(): Promise<GithubRepository[]>
+  allGithubRepositories(): Promise<IGithubRepository[]>
 }

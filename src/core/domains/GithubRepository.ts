@@ -35,4 +35,8 @@ export class GithubRepository {
   get commits(): GithubCommit[] {
     return this.github_repository.commits;
   }
+
+  toJSON(): IGithubRepository {
+    return this.github_repository;
+  }
 }

@@ -28,4 +28,8 @@ export class GithubCommit {
   get link(): string {
     return this.github_commit.link;
   }
+
+  toJSON(): IGithubCommit {
+    return this.github_commit;
+  }
 }
